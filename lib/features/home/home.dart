@@ -1,5 +1,6 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/app_controllers.dart';
+import 'package:dashboard/features/dashboard/presentation/pages/buy_tokens_screen.dart';
 import 'package:dashboard/features/dashboard/presentation/pages/dashboard_screen.dart';
 import 'package:dashboard/features/home/presentation/app_bar.dart';
 import 'package:dashboard/features/home/presentation/widgets/app_drawer.dart';
@@ -29,7 +30,7 @@ class _HomeState extends State<Home> {
         controller: AppControllers.homeController,
         children: const [
           DashBoardScreen(),
-          Center(child: Text('buy tokens')),
+          BuyTokensScreen(),
           Center(child: Text('distribution')),
           Center(child: Text('transactions')),
           ProfileScreen(),
