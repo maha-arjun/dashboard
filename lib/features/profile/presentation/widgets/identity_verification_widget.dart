@@ -1,3 +1,6 @@
+import 'package:dashboard/core/app_colors.dart';
+import 'package:dashboard/core/app_theme.dart';
+import 'package:dashboard/core/widgets/default_container.dart';
 import 'package:flutter/material.dart';
 
 class IdentityVerificationWidget extends StatelessWidget {
@@ -5,6 +8,61 @@ class IdentityVerificationWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var size = MediaQuery.of(context).size;
+
+    return DefaultContainer(
+        child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Identity Verification - KYC',
+          style: AppTheme.sectionTitleTextStyle,
+        ),
+        SizedBox(
+          height: size.width * 0.02,
+        ),
+        const Text(
+          'To comply with regulation, participant will have to go through identity verification.',
+          style: TextStyle(
+            color: AppColors.textGreyColor,
+            height: 1.3,
+          ),
+        ),
+        SizedBox(
+          height: size.width * 0.02,
+        ),
+        const Text(
+          'You have not submitted your KYC application to verify your identity.',
+          style: TextStyle(
+              color: AppColors.kGreyColor,
+              height: 1.5,
+              fontSize: 16,
+              fontWeight: FontWeight.w100),
+        ),
+        SizedBox(
+          height: size.width * 0.025,
+        ),
+        ElevatedButton(
+          style: AppTheme.elevatedButtonStyle!.copyWith(
+            minimumSize:
+                MaterialStateProperty.all(const Size(double.infinity, 50)),
+          ),
+          onPressed: () {},
+          child: const Text('Click to Proceed'),
+        ),
+        SizedBox(
+          height: size.width * 0.02,
+        ),
+        const Text(
+          '* KYC verification required for purchase token',
+          style: TextStyle(
+            color: AppColors.kPinkColor,
+            height: 1.5,
+            fontSize: 13,
+            fontWeight: FontWeight.w300,
+          ),
+        ),
+      ],
+    ));
   }
 }

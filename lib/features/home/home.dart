@@ -5,6 +5,7 @@ import 'package:dashboard/features/dashboard/presentation/pages/dashboard_screen
 import 'package:dashboard/features/home/presentation/app_bar.dart';
 import 'package:dashboard/features/home/presentation/widgets/app_drawer.dart';
 import 'package:dashboard/core/responsive_layout.dart';
+import 'package:dashboard/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -32,8 +33,8 @@ class _HomeState extends State<Home> {
           BuyTokensScreen(),
           Center(child: Text('distribution')),
           Center(child: Text('transactions')),
-          Center(child: Text('profile')),
-          Center(child: Text('pages')),
+          ProfileScreen(),
+          Center(child: Text('Pages')),
         ],
       ),
     );

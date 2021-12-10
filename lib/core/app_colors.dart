@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class AppColors {
   static const Color kPrimaryBlueColor = Color.fromARGB(255, 37, 57, 146);
@@ -9,4 +9,11 @@ class AppColors {
   static const Color kBgBlueColor = Color.fromARGB(255, 224, 232, 243);
   static const Color textBlueColor = Color(0xFF74FFFA);
   static const Color textGreyColor = Color(0xFF758698);
+  static const Color kYellowColor = Color.fromARGB(255, 255, 193, 0);
+  static const Color kGreyColor = Color.fromARGB(255, 128, 128, 128);
+  static const Color kPinkColor = Colors.pink;
+  static const Color kBlackColor = Color.fromARGB(255, 0, 0, 0);
+  static const Color textDarkGreyColor = Color(0xFF495463);
+  static const Color borderGreenColor = Color(0xFF00D285);
+  static const Color borderYellowColor = Color(0xFFFFC100);
 }
