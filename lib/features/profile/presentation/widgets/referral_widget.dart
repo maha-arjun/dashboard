@@ -17,6 +17,9 @@ class ReferralWidget extends StatelessWidget {
             'Earn with Referral',
             style: AppTheme.sectionTitleTextStyle,
           ),
+          SizedBox(
+            height: size.width * 0.025,
+          ),
           RichText(
             text: const TextSpan(
               children: [
@@ -24,7 +27,11 @@ class ReferralWidget extends StatelessWidget {
                   text: "Invite your friends & family and receive a ",
                 ),
                 TextSpan(
-                    text: "bonus - 15% ", style: TextStyle(color: kBlueColor)),
+                    text: "bonus - 15% ",
+                    style: TextStyle(
+                      color: kBlueColor,
+                      fontWeight: FontWeight.bold,
+                    )),
                 TextSpan(
                     text: " of the value of contribution",
                     style: TextStyle(fontWeight: FontWeight.bold)),
@@ -34,7 +41,48 @@ class ReferralWidget extends StatelessWidget {
               ),
             ),
           ),
-          Container(),
+          SizedBox(
+            height: size.width * 0.025,
+          ),
+          InkWell(
+            onHover: (s) {},
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(2.5),
+                border: Border.all(
+                  width: 0.25,
+                  color: kGreyColor,
+                ),
+              ),
+              width: double.infinity,
+              padding: EdgeInsets.all(4.0),
+              child: Row(
+                children: [
+                  Icon(
+                    Icons.link,
+                    color: kBlackColor,
+                  ),
+                  Flexible(
+                    child: Text(
+                      '  https://demo.themenio.com/ico?ref=7d264f90653733592',
+                      overflow: TextOverflow.ellipsis,
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.all(8.0),
+                    decoration: BoxDecoration(
+                      color: kBgBlueColor,
+                      borderRadius: BorderRadius.circular(4.0),
+                    ),
+                    child: Icon(
+                      Icons.copy_outlined,
+                      color: kGreyColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
