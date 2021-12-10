@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
       children: [
         const Icon(
           Icons.memory_outlined,
-          color: kBlueColor,
+          color: AppColors.kBlueColor,
         ),
         const SizedBox(
           width: 10,
@@ -14,7 +14,7 @@ import 'package:flutter/material.dart';
           text,
           style: const TextStyle(
             fontSize: 16,
-            color: kBlueColor,
+            color: AppColors.kBlueColor,
           ),
         ),
       ],

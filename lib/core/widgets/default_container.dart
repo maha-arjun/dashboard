@@ -12,7 +12,7 @@ class DefaultContainer extends StatelessWidget {
       margin: EdgeInsets.symmetric(vertical: size.width * 0.025),
       padding: EdgeInsets.all(size.width * 0.035),
       decoration: BoxDecoration(
-        color: kWhiteColor,
+        color: AppColors.kWhiteColor,
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: child,

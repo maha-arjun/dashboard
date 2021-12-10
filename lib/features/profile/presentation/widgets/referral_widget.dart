@@ -13,7 +13,7 @@ class ReferralWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Earn with Referral',
             style: AppTheme.sectionTitleTextStyle,
           ),
@@ -24,7 +24,7 @@ class ReferralWidget extends StatelessWidget {
                   text: "Invite your friends & family and receive a ",
                 ),
                 TextSpan(
-                    text: "bonus - 15% ", style: TextStyle(color: kBlueColor)),
+                    text: "bonus - 15% ", style: TextStyle(color: AppColors.kBlueColor)),
                 TextSpan(
                     text: " of the value of contribution",
                     style: TextStyle(fontWeight: FontWeight.bold)),

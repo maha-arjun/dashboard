@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const TextStyle sectionTitleTextStyle = TextStyle(
-    color: kPrimaryBlueColor,
+    color: AppColors.kPrimaryBlueColor,
     fontWeight: FontWeight.w600,
     fontSize: 17,
   );
