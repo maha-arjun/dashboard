@@ -2,7 +2,7 @@ import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/features/profile/presentation/widgets/profile_details.dart';
 import 'package:dashboard/features/profile/presentation/widgets/referral_widget.dart';
 import 'package:dashboard/features/profile/presentation/widgets/two_factor_verification_widget.dart';
-import 'package:dashboard/responsive_layout.dart';
+import 'package:dashboard/core/responsive_layout.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
