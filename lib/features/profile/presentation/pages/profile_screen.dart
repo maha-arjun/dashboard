@@ -1,0 +1,86 @@
+import 'package:dashboard/core/app_colors.dart';
+import 'package:dashboard/features/profile/presentation/widgets/account_status_widget.dart';
+import 'package:dashboard/features/profile/presentation/widgets/identity_verification_widget.dart';
+import 'package:dashboard/features/profile/presentation/widgets/profile_details.dart';
+import 'package:dashboard/features/profile/presentation/widgets/referral_widget.dart';
+import 'package:dashboard/features/profile/presentation/widgets/two_factor_verification_widget.dart';
+import 'package:dashboard/core/responsive_layout.dart';
+import 'package:flutter/material.dart';
+
+class ProfileScreen extends StatefulWidget {
+  const ProfileScreen({Key? key}) : super(key: key);
+
+  @override
+  _ProfileScreenState createState() => _ProfileScreenState();
+}
+
+class _ProfileScreenState extends State<ProfileScreen> {
+  @override
+  Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+    return SingleChildScrollView(
+      child: ResponsiveLayout(
+        desktop:
+            // Padding(
+            //   padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+            //   child: Row(
+            //     children: [
+            //       Column(
+            //         children: [
+            //           ProfileDetailsWidget(),
+            //           TwoFactorVerificationWidget(),
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           AccountStatusWidget(),
+            //           ReferralWidget(),
+            //           IdentityVerificationWidget(),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
+            Padding(
+          padding: EdgeInsets.all(size.width * 0.025),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              ProfileDetailsWidget(),
+              TwoFactorVerificationWidget(),
+              AccountStatusWidget(),
+              ReferralWidget(),
+              IdentityVerificationWidget(),
+            ],
+          ),
+        ),
+        tablet: Padding(
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              ProfileDetailsWidget(),
+              TwoFactorVerificationWidget(),
+              AccountStatusWidget(),
+              ReferralWidget(),
+              IdentityVerificationWidget(),
+            ],
+          ),
+        ),
+        mobile: Padding(
+          padding: EdgeInsets.all(size.width * 0.025),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: const [
+              ProfileDetailsWidget(),
+              TwoFactorVerificationWidget(),
+              AccountStatusWidget(),
+              ReferralWidget(),
+              IdentityVerificationWidget(),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

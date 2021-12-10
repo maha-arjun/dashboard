@@ -7,6 +7,10 @@ class AppTheme {
     fontWeight: FontWeight.w600,
     fontSize: 17,
   );
+  static const TextStyle menuButtonTextStyle = const TextStyle(
+    fontSize: 16,
+    color: kBlueColor,
+  );
   static const TextStyle textFieldTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
     color: kGreyColor,

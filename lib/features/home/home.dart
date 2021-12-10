@@ -2,6 +2,7 @@ import 'package:dashboard/core/app_controllers.dart';
 import 'package:dashboard/features/home/presentation/app_bar.dart';
 import 'package:dashboard/features/home/presentation/widgets/app_drawer.dart';
 import 'package:dashboard/core/responsive_layout.dart';
+import 'package:dashboard/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -18,13 +19,17 @@ class _HomeState extends State<Home> {
     return Scaffold(
       appBar: !ResponsiveLayout.isDesktop(context)
           ? mobileAppBar(size)
-          : PreferredSize(preferredSize: Size(size.width, 1000), child: const WebAppBar()),
+          : PreferredSize(
+              preferredSize: Size(size.width, 1000), child: const WebAppBar()),
       drawer: const AppDrawer(),
       body: PageView(
         controller: AppControllers.homeController,
         children: const [
           Center(child: Text('dashboard')),
-          Center(child: Text('buy tokens'))
+          Center(child: Text('buy tokens')),
+          Center(child: Text('buy tokens')),
+          Center(child: Text('buy tokens')),
+          ProfileScreen(),
         ],
       ),
     );

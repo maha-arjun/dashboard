@@ -1,6 +1,13 @@
 import 'package:dashboard/core/app_colors.dart';
+import 'package:dashboard/core/app_controllers.dart';
 import 'package:dashboard/core/app_theme.dart';
 import 'package:dashboard/core/widgets/default_container.dart';
+import 'package:dashboard/core/widgets/default_textfield.dart';
+import 'package:dashboard/features/home/presentation/widgets/menu_indicator.dart';
+import 'package:dashboard/features/home/presentation/widgets/menu_option_widget.dart';
+import 'package:dashboard/features/profile/presentation/widgets/profile_details/password_tab.dart';
+import 'package:dashboard/features/profile/presentation/widgets/profile_details/profile_data_tab.dart';
+import 'package:dashboard/features/profile/presentation/widgets/profile_details/settings_tab.dart';
 import 'package:flutter/material.dart';
 
 class ProfileDetailsWidget extends StatelessWidget {
@@ -10,6 +17,7 @@ class ProfileDetailsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return DefaultContainer(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -18,70 +26,107 @@ class ProfileDetailsWidget extends StatelessWidget {
             'Profile Details',
             style: AppTheme.sectionTitleTextStyle,
           ),
-          textFieldTitle('Full Name'),
-          textField(),
-          textFieldTitle('Email Address'),
-          textField(),
-          textFieldTitle('Mobile Number'),
-          textField(),
-          textFieldTitle('Date of Birth'),
-          textField(),
-          textFieldTitle('Nationality'),
-          textField(),
+          SizedBox(
+            height: 10,
+          ),
+          Stack(
+            alignment: Alignment.bottomCenter,
+            children: [
+              Container(
+                width: double.infinity,
+                height: 2,
+                color: kGreyColor.withOpacity(0.5),
+              ),
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        'PROFILE DATA',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: kBlueColor,
+                          letterSpacing: 1.1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 2,
+                        color: kBlueColor,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'SETTINGS',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: kBlueColor,
+                          letterSpacing: 1.1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 2,
+                        color: kBlueColor,
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Column(
+                    children: [
+                      Text(
+                        'PASSWORD',
+                        style: TextStyle(
+                          fontSize: 12,
+                          color: kBlueColor,
+                          letterSpacing: 1.1,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      Container(
+                        width: 80,
+                        height: 2,
+                        color: kBlueColor,
+                      ),
+                    ],
+                  )
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          // PageView(
+          //   controller: AppControllers.profileController,
+          //   children: [
+          // ProfileDataTab(),
+          SettingsTab(),
+          // PasswordTab(),
+          //     Container(),
+          //     Container(),
+          //   ],
+          // )
         ],
       ),
-    );
-  }
-
-  Container textField() {
-    return Container(
-      height: 40,
-      child: TextFormField(
-        decoration: InputDecoration(
-          // border: OutlineInputBorder(
-          //   borderRadius: BorderRadius.circular(2.5),
-          //   borderSide: BorderSide(
-          //     width: 0.25,
-          //     color: Colors.grey,
-          //   ),
-          // ),
-          // disabledBorder: OutlineInputBorder(
-          //   borderRadius: BorderRadius.circular(2.5),
-          //   borderSide: BorderSide(
-          //     width: 0.25,
-          //     color: Colors.grey,
-          //   ),
-          // ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(2.5),
-            borderSide: BorderSide(
-              width: 0.25,
-              color: Colors.grey,
-            ),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(2.5),
-            borderSide: BorderSide(
-              width: 0.5,
-              color: Colors.grey,
-            ),
-          ),
-        ),
-        cursorWidth: 1,
-        style: TextStyle(
-          fontWeight: FontWeight.w300,
-          color: kGreyColor,
-          fontSize: 14,
-        ),
-        cursorColor: kGreyColor,
-      ),
-    );
-  }
-
-  Text textFieldTitle(String title) {
-    return Text(
-      title,
-      style: AppTheme.textFieldTitleTextStyle,
     );
   }
 }

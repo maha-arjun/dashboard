@@ -12,7 +12,7 @@ Visibility menuIndicator(BuildContext context, bool isActive) {
     child: Container(
       color: kBlueColor,
       height: 2,
-      width: ResponsiveLayout.isMobile(context) ? double.infinity : 80,
+      width: double.infinity,
     ),
   );
 }

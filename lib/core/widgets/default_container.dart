@@ -10,7 +10,7 @@ class DefaultContainer extends StatelessWidget {
     var size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: size.width * 0.025),
-      padding: EdgeInsets.all(size.width * 0.035),
+      padding: EdgeInsets.all(size.width * 0.05),
       decoration: BoxDecoration(
         color: kWhiteColor,
         borderRadius: BorderRadius.circular(5.0),
