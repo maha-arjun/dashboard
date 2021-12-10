@@ -24,7 +24,7 @@ class _MenuBarState extends State<MenuBar> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      color: kWhiteColor,
+      color: AppColors.kWhiteColor,
       padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
       child: Row(
         children: [

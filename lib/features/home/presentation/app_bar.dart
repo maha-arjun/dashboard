@@ -27,7 +27,7 @@ class _WebAppBarState extends State<WebAppBar> {
         children: [
           Container(
             height: 64,
-            color: kPrimaryBlueColor,
+            color: AppColors.kPrimaryBlueColor,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -37,7 +37,7 @@ class _WebAppBarState extends State<WebAppBar> {
                 const Text(
                   'Welcome! Stefan Harary',
                   style: TextStyle(
-                    color: kWhiteColor,
+                    color: AppColors.kWhiteColor,
                   ),
                 ),
                 Padding(
@@ -47,7 +47,7 @@ class _WebAppBarState extends State<WebAppBar> {
                     child: const Icon(
                       Icons.account_circle,
                       size: 40,
-                      color: kWhiteColor,
+                      color: AppColors.kWhiteColor,
                     ),
                   ),
                 ),
@@ -304,7 +304,7 @@ class _WebAppBarState extends State<WebAppBar> {
 
 AppBar mobileAppBar(Size size) {
   return AppBar(
-    backgroundColor: kPrimaryBlueColor,
+    backgroundColor: AppColors.kPrimaryBlueColor,
     centerTitle: true,
     title: const LogoTitle(),
     actions: [
@@ -335,14 +335,14 @@ class LogoTitle extends StatelessWidget {
       children: const [
         Icon(
           Icons.account_balance_wallet_outlined,
-          color: kWhiteColor,
+          color: AppColors.kWhiteColor,
         ),
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 8.0),
           child: Text(
             'TOKENWIZ',
             style: TextStyle(
-              color: kWhiteColor,
+              color: AppColors.kWhiteColor,
             ),
           ),
         ),
