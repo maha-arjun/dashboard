@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../app_colors.dart';
 
-Widget textField() {
+Widget textField([String? text]) {
   return Container(
     height: 40,
     child: TextFormField(
+      initialValue: text,
       decoration: InputDecoration(
         // border: OutlineInputBorder(
         //   borderRadius: BorderRadius.circular(2.5),
@@ -40,17 +41,17 @@ Widget textField() {
       cursorWidth: 1,
       style: TextStyle(
         fontWeight: FontWeight.w300,
-        color: kGreyColor,
+        color: AppColors.kGreyColor,
         fontSize: 14,
       ),
-      cursorColor: kGreyColor,
+      cursorColor: AppColors.kGreyColor,
     ),
   );
 }
 
-Text textFieldTitle(String title) {
+Text subTitleText(String title) {
   return Text(
     title,
-    style: AppTheme.textFieldTitleTextStyle,
+    style: AppTheme.subTitleTextStyle,
   );
 }

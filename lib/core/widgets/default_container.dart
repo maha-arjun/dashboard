@@ -1,4 +1,5 @@
 import 'package:dashboard/core/app_colors.dart';
+import 'package:dashboard/core/responsive_layout.dart';
 import 'package:flutter/material.dart';
 
 class DefaultContainer extends StatelessWidget {
@@ -9,10 +10,11 @@ class DefaultContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Container(
-      margin: EdgeInsets.symmetric(vertical: size.width * 0.025),
-      padding: EdgeInsets.all(size.width * 0.05),
+      padding: ResponsiveLayout.isMobile(context)
+          ? EdgeInsets.symmetric(horizontal: 20, vertical: 16)
+          : EdgeInsets.symmetric(horizontal: 30, vertical: 25),
       decoration: BoxDecoration(
-        color: kWhiteColor,
+        color: AppColors.kWhiteColor,
         borderRadius: BorderRadius.circular(5.0),
       ),
       child: child,

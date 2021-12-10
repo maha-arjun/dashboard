@@ -10,7 +10,7 @@ Visibility menuIndicator(BuildContext context, bool isActive) {
     maintainSize: true,
     visible: isActive,
     child: Container(
-      color: kBlueColor,
+      color: AppColors.kBlueColor,
       height: 2,
       width: double.infinity,
     ),
@@ -24,7 +24,7 @@ Visibility menuIndicatorDesktop(BuildContext context, bool isActive) {
     maintainSize: true,
     visible: isActive,
     child: Container(
-      color: kBlueColor,
+      color: AppColors.kBlueColor,
       height: 2,
       width: Get.size.width,
     ),

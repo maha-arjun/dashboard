@@ -1,6 +1,7 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/app_theme.dart';
 import 'package:dashboard/core/widgets/default_container.dart';
+import 'package:dashboard/features/profile/presentation/widgets/wallet_address_dialog.dart';
 import 'package:flutter/material.dart';
 
 class AccountStatusWidget extends StatelessWidget {
@@ -13,73 +14,80 @@ class AccountStatusWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Your Account Status',
             style: AppTheme.sectionTitleTextStyle,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             children: [
               ElevatedButton(
-                style: AppTheme.elevatedButtonStyle!.copyWith(
-                  backgroundColor: MaterialStateProperty.all(kGreenColor),
+                style: ElevatedButton.styleFrom(
+                  primary: AppColors.kGreenColor,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'Email Verified',
                   style: TextStyle(
-                    color: kWhiteColor,
+                    color: AppColors.kWhiteColor,
                     fontSize: 11,
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 20,
               ),
               ElevatedButton(
-                style: AppTheme.elevatedButtonStyle!.copyWith(
-                  backgroundColor: MaterialStateProperty.all(kYellowColor),
+                style: ElevatedButton.styleFrom(
+                  primary: AppColors.kYellowColor,
                 ),
                 onPressed: () {},
-                child: Text(
+                child: const Text(
                   'KYC Pending',
                   style: TextStyle(
-                    color: kWhiteColor,
+                    color: AppColors.kWhiteColor,
                     fontSize: 11,
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
-          Text(
+          const Text(
             'Receiving Wallet',
             style: AppTheme.sectionTitleTextStyle,
           ),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Row(
             children: [
-              Text('0x39deb3.....e2ac64rd '),
-              Icon(
+              const Text('0x39deb3.....e2ac64rd '),
+              const Icon(
                 Icons.info,
-                color: kGreyColor,
+                color: AppColors.kGreyColor,
                 size: 20,
               ),
-              Spacer(),
+              const Spacer(),
               TextButton(
-                onPressed: () {},
-                child: Text(
+                onPressed: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Dialog(
+                      child: WalletAddressDialog(),
+                    ),
+                  );
+                },
+                child: const Text(
                   'EDIT',
                   style: TextStyle(
-                    color: kPrimaryBlueColor,
+                    color: AppColors.kPrimaryBlueColor,
                     fontWeight: FontWeight.bold,
-                    fontSize: 13,
+                    fontSize: 12,
                   ),
                 ),
               ),

@@ -3,23 +3,23 @@ import 'package:flutter/material.dart';
 
 class AppTheme {
   static const TextStyle sectionTitleTextStyle = TextStyle(
-    color: kPrimaryBlueColor,
+    color: AppColors.kPrimaryBlueColor,
     fontWeight: FontWeight.w600,
-    fontSize: 17,
+    fontSize: 18.2,
   );
   static const TextStyle menuButtonTextStyle = const TextStyle(
     fontSize: 16,
-    color: kBlueColor,
+    color: AppColors.kBlueColor,
   );
-  static const TextStyle textFieldTitleTextStyle = TextStyle(
+  static const TextStyle subTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
-    color: kGreyColor,
+    color: AppColors.textGreyColor,
     fontSize: 14,
   );
 
   static ButtonStyle? elevatedButtonStyle = ElevatedButton.styleFrom(
-    primary: kBlueColor,
-    minimumSize: null,
-    onSurface: kPrimaryBlueColor,
+    primary: AppColors.kBlueColor,
+    minimumSize: Size(200, 57),
+    onSurface: AppColors.kPrimaryBlueColor,
   );
 }

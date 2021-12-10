@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
 class SettingsTab extends StatefulWidget {
-  SettingsTab({Key? key}) : super(key: key);
+  const SettingsTab({Key? key}) : super(key: key);
 
   @override
   State<SettingsTab> createState() => _SettingsTabState();
 }
 
 class _SettingsTabState extends State<SettingsTab> {
-  final List<bool> _switch = [false, false, false, false];
+  final List<bool> _switch = [false, true, false, true];
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class _SettingsTabState extends State<SettingsTab> {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0),
-          child: textFieldTitle('Security Settings'),
+          child: subTitleText('Security Settings'),
         ),
         Row(
           children: [
@@ -44,7 +44,7 @@ class _SettingsTabState extends State<SettingsTab> {
         ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 10.0),
-          child: textFieldTitle('Manage Notification'),
+          child: subTitleText('Manage Notification'),
         ),
         Row(
           children: [
@@ -66,19 +66,19 @@ class _SettingsTabState extends State<SettingsTab> {
             toogleText('Alert me by email for unusual activity'),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 20,
         ),
         Row(
-          children: [
+          children: const [
             Spacer(),
             Icon(
               Icons.done_all_rounded,
-              color: kGreenColor,
+              color: AppColors.kGreenColor,
             ),
             Text(
               ' Settings has been updated',
-              style: TextStyle(color: kGreenColor),
+              style: TextStyle(color: AppColors.kGreenColor),
             )
           ],
         )
@@ -86,11 +86,15 @@ class _SettingsTabState extends State<SettingsTab> {
     );
   }
 
-  Text toogleText(String text) {
-    return Text(
-      text,
-      style: TextStyle(
-        color: kGreyColor,
+  Widget toogleText(String text) {
+    return Expanded(
+      child: Text(
+        text,
+        maxLines: 2,
+        textAlign: TextAlign.start,
+        style: const TextStyle(
+          color: AppColors.kGreyColor,
+        ),
       ),
     );
   }
@@ -99,7 +103,7 @@ class _SettingsTabState extends State<SettingsTab> {
     return Transform.scale(
       scale: 0.8,
       child: CupertinoSwitch(
-        activeColor: kBlueColor,
+        activeColor: AppColors.kBlueColor,
         value: toggleStatus,
         onChanged: onChanged,
       ),

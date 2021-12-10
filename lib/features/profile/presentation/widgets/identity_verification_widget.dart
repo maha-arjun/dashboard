@@ -14,49 +14,51 @@ class IdentityVerificationWidget extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        const Text(
           'Identity Verification - KYC',
           style: AppTheme.sectionTitleTextStyle,
         ),
         SizedBox(
           height: size.width * 0.02,
         ),
-        Text(
+        const Text(
           'To comply with regulation, participant will have to go through identity verification.',
           style: TextStyle(
-            color: Colors.black87,
+            color: AppColors.textGreyColor,
             height: 1.3,
           ),
         ),
         SizedBox(
           height: size.width * 0.02,
         ),
-        Text(
+        const Text(
           'You have not submitted your KYC application to verify your identity.',
           style: TextStyle(
-              color: kGreyColor,
+              color: AppColors.kGreyColor,
               height: 1.5,
               fontSize: 16,
-              fontWeight: FontWeight.w300),
+              fontWeight: FontWeight.w100),
         ),
         SizedBox(
           height: size.width * 0.025,
         ),
         ElevatedButton(
           style: AppTheme.elevatedButtonStyle!.copyWith(
-            minimumSize: MaterialStateProperty.all(Size(double.infinity, 50)),
+            minimumSize:
+                MaterialStateProperty.all(const Size(double.infinity, 50)),
           ),
           onPressed: () {},
-          child: Text('Click to Proceed'),
+          child: const Text('Click to Proceed'),
         ),
         SizedBox(
           height: size.width * 0.02,
         ),
-        Text(
+        const Text(
           '* KYC verification required for purchase token',
           style: TextStyle(
-            color: kPinkColor,
+            color: AppColors.kPinkColor,
             height: 1.5,
+            fontSize: 13,
             fontWeight: FontWeight.w300,
           ),
         ),

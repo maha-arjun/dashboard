@@ -1,3 +1,4 @@
+import 'package:dashboard/core/app_controllers.dart';
 import 'package:dashboard/core/responsive_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -12,15 +13,8 @@ class AppDrawer extends StatefulWidget {
 }
 
 class _AppDrawerState extends State<AppDrawer> {
-  final List<bool> _isHovering = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-  ];
+  int _hoverIndex = -1;
+  int _currentIndex = 0;
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
@@ -36,11 +30,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[0] = true : _isHovering[0] = false;
+                  value ? _hoverIndex = 0 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(0);
+                setState(() => _currentIndex = 0);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -51,7 +48,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[0],
+                    _hoverIndex == 0 || _currentIndex == 0,
                   ),
                 ],
               ),
@@ -62,11 +59,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[1] = true : _isHovering[1] = false;
+                  value ? _hoverIndex = 1 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(1);
+                setState(() => _currentIndex = 1);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -77,7 +77,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[1],
+                    _hoverIndex == 1 || _currentIndex == 1,
                   ),
                 ],
               ),
@@ -88,11 +88,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[2] = true : _isHovering[2] = false;
+                  value ? _hoverIndex = 2 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(2);
+                setState(() => _currentIndex = 2);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -103,7 +106,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[2],
+                    _hoverIndex == 2 || _currentIndex == 2,
                   ),
                 ],
               ),
@@ -114,11 +117,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[3] = true : _isHovering[3] = false;
+                  value ? _hoverIndex = 3 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(3);
+                setState(() => _currentIndex = 3);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -129,7 +135,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[3],
+                    _hoverIndex == 3 || _currentIndex == 3,
                   ),
                 ],
               ),
@@ -140,11 +146,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[4] = true : _isHovering[4] = false;
+                  value ? _hoverIndex = 4 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(4);
+                setState(() => _currentIndex = 4);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -155,7 +164,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[4],
+                    _hoverIndex == 4 || _currentIndex == 4,
                   ),
                 ],
               ),
@@ -166,11 +175,14 @@ class _AppDrawerState extends State<AppDrawer> {
             child: InkWell(
               onHover: (value) {
                 setState(() {
-                  value ? _isHovering[5] = true : _isHovering[5] = false;
+                  value ? _hoverIndex = 5 : _hoverIndex = -1;
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {},
+              onTap: () {
+                AppControllers.homeController.jumpToPage(5);
+                setState(() => _currentIndex = 5);
+              },
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -181,7 +193,7 @@ class _AppDrawerState extends State<AppDrawer> {
                   const SizedBox(height: 10),
                   menuIndicator(
                     context,
-                    _isHovering[5],
+                    _hoverIndex == 5 || _currentIndex == 5,
                   ),
                 ],
               ),
@@ -193,12 +205,12 @@ class _AppDrawerState extends State<AppDrawer> {
           MouseRegion(
             onEnter: (f) {
               setState(() {
-                _isHovering[6] = true;
+                _hoverIndex = 6;
               });
             },
             onExit: (f) {
               setState(() {
-                _isHovering[6] = false;
+                _hoverIndex = -1;
               });
             },
             cursor: SystemMouseCursors.click,
@@ -210,7 +222,7 @@ class _AppDrawerState extends State<AppDrawer> {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(5.0),
                 border: Border.all(
-                  width: _isHovering[6] ? 0.75 : 0.5,
+                  width: _hoverIndex == 6 || _currentIndex == 6 ? 0.75 : 0.5,
                   color: Colors.black87,
                 ),
               ),
@@ -220,14 +232,14 @@ class _AppDrawerState extends State<AppDrawer> {
                 children: [
                   Icon(
                     Icons.document_scanner,
-                    color: _isHovering[5]
+                    color: _hoverIndex == 6 || _currentIndex == 6
                         ? Colors.grey.shade700
                         : Colors.grey.shade600,
                   ),
                   Text(
                     'KYC Application',
                     style: TextStyle(
-                      color: _isHovering[5]
+                      color: _hoverIndex == 6 || _currentIndex == 6
                           ? Colors.grey.shade700
                           : Colors.grey.shade600,
                     ),

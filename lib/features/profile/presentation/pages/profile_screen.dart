@@ -15,68 +15,94 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  final controller = ScrollController();
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SingleChildScrollView(
+      controller: controller,
       child: ResponsiveLayout(
-        desktop:
-            // Padding(
-            //   padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
-            //   child: Row(
-            //     children: [
-            //       Column(
-            //         children: [
-            //           ProfileDetailsWidget(),
-            //           TwoFactorVerificationWidget(),
-            //         ],
-            //       ),
-            //       Column(
-            //         children: [
-            //           AccountStatusWidget(),
-            //           ReferralWidget(),
-            //           IdentityVerificationWidget(),
-            //         ],
-            //       ),
-            //     ],
-            //   ),
-            // ),
-            Padding(
-          padding: EdgeInsets.all(size.width * 0.025),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: const [
-              ProfileDetailsWidget(),
-              TwoFactorVerificationWidget(),
-              AccountStatusWidget(),
-              ReferralWidget(),
-              IdentityVerificationWidget(),
-            ],
+        desktop: Padding(
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+          child: Padding(
+            padding: const EdgeInsets.only(top: 45.0),
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Expanded(
+                  flex: 7,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: const [
+                      ProfileDetailsWidget(),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      TwoFactorVerificationWidget(),
+                    ],
+                  ),
+                ),
+                const SizedBox(
+                  width: 30,
+                ),
+                Expanded(
+                  flex: 4,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: const [
+                      AccountStatusWidget(),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      ReferralWidget(),
+                      SizedBox(
+                        height: 30,
+                      ),
+                      IdentityVerificationWidget(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         tablet: Padding(
-          padding: EdgeInsets.symmetric(horizontal: size.width * 0.1),
+          padding: EdgeInsets.symmetric(horizontal: size.width * 0.12),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
+              SizedBox(height: 45),
               ProfileDetailsWidget(),
+              SizedBox(height: 30),
               TwoFactorVerificationWidget(),
+              SizedBox(height: 30),
               AccountStatusWidget(),
+              SizedBox(height: 30),
               ReferralWidget(),
+              SizedBox(height: 30),
               IdentityVerificationWidget(),
             ],
           ),
         ),
         mobile: Padding(
-          padding: EdgeInsets.all(size.width * 0.025),
+          padding: const EdgeInsets.all(15),
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: const [
               ProfileDetailsWidget(),
+              SizedBox(height: 15),
               TwoFactorVerificationWidget(),
+              SizedBox(height: 15),
               AccountStatusWidget(),
+              SizedBox(height: 15),
               ReferralWidget(),
+              SizedBox(height: 15),
               IdentityVerificationWidget(),
+              SizedBox(height: 15),
             ],
           ),
         ),

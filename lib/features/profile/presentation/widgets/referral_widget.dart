@@ -13,7 +13,7 @@ class ReferralWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Earn with Referral',
             style: AppTheme.sectionTitleTextStyle,
           ),
@@ -29,16 +29,14 @@ class ReferralWidget extends StatelessWidget {
                 TextSpan(
                     text: "bonus - 15% ",
                     style: TextStyle(
-                      color: kBlueColor,
+                      color: AppColors.kBlueColor,
                       fontWeight: FontWeight.bold,
                     )),
                 TextSpan(
                     text: " of the value of contribution",
                     style: TextStyle(fontWeight: FontWeight.bold)),
               ],
-              style: TextStyle(
-                fontSize: 14,
-              ),
+              style: TextStyle(fontSize: 14, color: AppColors.textGreyColor),
             ),
           ),
           SizedBox(
@@ -51,32 +49,32 @@ class ReferralWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(2.5),
                 border: Border.all(
                   width: 0.25,
-                  color: kGreyColor,
+                  color: AppColors.kGreyColor,
                 ),
               ),
               width: double.infinity,
-              padding: EdgeInsets.all(4.0),
+              padding: const EdgeInsets.all(4.0),
               child: Row(
                 children: [
-                  Icon(
+                  const Icon(
                     Icons.link,
-                    color: kBlackColor,
+                    color: AppColors.kBlackColor,
                   ),
-                  Flexible(
+                  const Flexible(
                     child: Text(
                       '  https://demo.themenio.com/ico?ref=7d264f90653733592',
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8.0),
                     decoration: BoxDecoration(
-                      color: kBgBlueColor,
+                      color: AppColors.kBgBlueColor,
                       borderRadius: BorderRadius.circular(4.0),
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Icons.copy_outlined,
-                      color: kGreyColor,
+                      color: AppColors.kGreyColor,
                     ),
                   ),
                 ],
