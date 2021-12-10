@@ -7,8 +7,8 @@ import 'package:flutter/material.dart';
           Icons.memory_outlined,
           color: kBlueColor,
         ),
-        SizedBox(
-          width: size.width * 0.0025,
+        const SizedBox(
+          width: 10,
         ),
         Text(
           text,
