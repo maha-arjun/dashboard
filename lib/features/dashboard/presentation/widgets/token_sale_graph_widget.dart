@@ -1,9 +1,11 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
-Widget tokenSaleGraphWidget() => Container(
+import 'graph_widget.dart';
+
+Widget tokenSaleGraphWidget(Size size) => Container(
   height: 290.3,
-  width: 730,
+  width: size.width > 500 ? 730 : size.width * 0.95,
   decoration: BoxDecoration(
     color: AppColors.kWhiteColor,
     borderRadius: BorderRadius.circular(5),
@@ -44,6 +46,8 @@ Widget tokenSaleGraphWidget() => Container(
           )
         ],
       ),
+      //graph
+      const Expanded(child: LineChartSample2())
     ],
   ),
 );

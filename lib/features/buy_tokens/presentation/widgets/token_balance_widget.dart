@@ -2,9 +2,9 @@ import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/responsive_layout.dart';
 import 'package:flutter/material.dart';
 
-Widget tokenBalanceWidget(BuildContext context) => Container(
+Widget tokenBalanceWidget(BuildContext context, Size size) => Container(
   height: 192.39,
-  width: ResponsiveLayout.isDesktop(context) ? 350 : 289.98,
+  width: size.width > 500 ? 350 : size.width * 0.95,
   decoration: BoxDecoration(
     color: AppColors.kBlueColor,
     borderRadius: BorderRadius.circular(5)
@@ -24,7 +24,7 @@ Widget tokenBalanceWidget(BuildContext context) => Container(
                 Text('TOKENS BALANCE', style: TextStyle(
                     fontSize: 12,
                     color: AppColors.textBlueColor,
-                    fontWeight: FontWeight.w500
+                    fontWeight: FontWeight.w600
                 ),),
                 //balance count
                 Text.rich(
@@ -58,7 +58,7 @@ Widget tokenBalanceWidget(BuildContext context) => Container(
         const Text('YOUR CONTRIBUTION', style: TextStyle(
             fontSize: 12,
             color: AppColors.textBlueColor,
-            fontWeight: FontWeight.w500
+            fontWeight: FontWeight.w600
         )),
         //contribution row
         const SizedBox(height: 4),

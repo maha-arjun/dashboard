@@ -7,6 +7,7 @@ import 'package:dashboard/features/home/presentation/widgets/app_drawer.dart';
 import 'package:dashboard/core/responsive_layout.dart';
 import 'package:dashboard/features/ico_distribution/presentation/ico_distribution_screen.dart';
 import 'package:dashboard/features/profile/presentation/pages/profile_screen.dart';
+import 'package:dashboard/features/transactions/presentation/pages/transactions_screen.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatefulWidget {
@@ -29,11 +30,12 @@ class _HomeState extends State<Home> {
       drawer: const AppDrawer(),
       body: PageView(
         controller: AppControllers.homeController,
+        physics: const NeverScrollableScrollPhysics(),
         children: const [
           DashBoardScreen(),
           BuyTokensScreen(),
           IcoDistributionScreen(),
-          Center(child: Text('transactions')),
+          TransactionsScreen(),
           ProfileScreen(),
           Center(child: Text('Pages')),
         ],
