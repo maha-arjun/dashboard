@@ -15,4 +15,5 @@ class AppColors {
   static const Color textDarkGreyColor = Color(0xFF495463);
   static const Color borderGreenColor = Color(0xFF00D285);
   static const Color borderYellowColor = Color(0xFFFFC100);
+  static const Color progressGreyColor = Color(0xFFD2DDE9);
 }

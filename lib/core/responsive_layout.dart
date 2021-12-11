@@ -11,8 +11,8 @@ class ResponsiveLayout extends StatelessWidget {
     required this.desktop,
   }) : super(key: key);
 
-  static int mobileLimit = 500;
-  static int tabletLimit = 1000;
+  static int mobileLimit = 678;
+  static int tabletLimit = 1200;
 
   static bool isMobile(BuildContext context) =>
       MediaQuery.of(context).size.width < mobileLimit;

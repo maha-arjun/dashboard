@@ -1,9 +1,9 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
-Widget tokenCalculationWidget() => Container(
+Widget tokenCalculationWidget(Size size) => Container(
   height: 265.59,
-  width: 350,
+  width: size.width > 500 ? 365 : size.width * 0.95,
   decoration: BoxDecoration(
     color: AppColors.kWhiteColor,
     borderRadius: BorderRadius.circular(5),
