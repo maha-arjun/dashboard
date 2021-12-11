@@ -1,9 +1,9 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:flutter/material.dart';
 
-Widget downloadWhitePaperWidget() => Container(
+Widget downloadWhitePaperWidget(Size size) => Container(
   height: 192.39,
-  width: 365,
+  width: size.width > 500 ? 365 : size.width * 0.95,
   decoration: const BoxDecoration(
       color: AppColors.kWhiteColor,
       borderRadius: BorderRadius.only(topLeft: Radius.circular(5), bottomLeft: Radius.circular(5))

@@ -11,7 +11,7 @@ class ResponsiveLayout extends StatelessWidget {
     required this.desktop,
   }) : super(key: key);
 
-  static int mobileLimit = 500;
+  static int mobileLimit = 678;
   static int tabletLimit = 1200;
 
   static bool isMobile(BuildContext context) =>
@@ -30,7 +30,8 @@ class ResponsiveLayout extends StatelessWidget {
         builder: (BuildContext context, BoxConstraints constraints) {
       if (constraints.maxWidth < mobileLimit) {
         return mobile;
-      } else if (constraints.maxWidth < tabletLimit) {
+      } else if (constraints.maxWidth < tabletLimit &&
+          constraints.maxWidth > mobileLimit) {
         return tablet;
       } else {
         return desktop;

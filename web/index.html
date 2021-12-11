@@ -96,6 +96,19 @@
       // Service workers not supported. Just drop the <script> tag.
       loadMainDartJs();
     }
+
+    // Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDWoHOXISgR63D00fna_LNzzrd8x0F_QQM",
+  authDomain: "crypto-dashboard-pyr.firebaseapp.com",
+  projectId: "crypto-dashboard-pyr",
+  storageBucket: "crypto-dashboard-pyr.appspot.com",
+  messagingSenderId: "232714941498",
+  appId: "1:232714941498:web:a99eba46ca00f1cf1eb103"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
   </script>
 </body>
 </html>
