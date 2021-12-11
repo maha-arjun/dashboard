@@ -1,10 +1,11 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/app_controllers.dart';
-import 'package:dashboard/features/dashboard/presentation/pages/buy_tokens_screen.dart';
+import 'package:dashboard/features/buy_tokens/presentation/buy_tokens_screen.dart';
 import 'package:dashboard/features/dashboard/presentation/pages/dashboard_screen.dart';
 import 'package:dashboard/features/home/presentation/app_bar.dart';
 import 'package:dashboard/features/home/presentation/widgets/app_drawer.dart';
 import 'package:dashboard/core/responsive_layout.dart';
+import 'package:dashboard/features/ico_distribution/presentation/ico_distribution_screen.dart';
 import 'package:dashboard/features/profile/presentation/pages/profile_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -31,7 +32,7 @@ class _HomeState extends State<Home> {
         children: const [
           DashBoardScreen(),
           BuyTokensScreen(),
-          Center(child: Text('distribution')),
+          IcoDistributionScreen(),
           Center(child: Text('transactions')),
           ProfileScreen(),
           Center(child: Text('Pages')),

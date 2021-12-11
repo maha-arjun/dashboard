@@ -1,7 +1,7 @@
 import 'package:dashboard/core/responsive_layout.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/coin_token_conversion_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/download_whitepaper_widget.dart';
-import 'package:dashboard/features/dashboard/presentation/widgets/token_balance_widget.dart';
+import 'package:dashboard/features/buy_tokens/presentation/widgets/token_balance_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/token_calculation_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/token_sale_graph_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/token_sale_progress_widget.dart';
@@ -32,7 +32,9 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   tokenBalanceWidget(context),
-                  const SizedBox(width: 30,),
+                  const SizedBox(
+                    width: 30,
+                  ),
                   coinTokenConversionWidget(),
                   const SizedBox(width: 0.5),
                   downloadWhitePaperWidget()
@@ -40,22 +42,30 @@ class _DashBoardScreenState extends State<DashBoardScreen> {
               ),
             ),
             //row 2
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 transactionWidget(),
-                const SizedBox(width: 30,),
+                const SizedBox(
+                  width: 30,
+                ),
                 tokenCalculationWidget()
               ],
             ),
             //row 3
-            const SizedBox(height: 30,),
+            const SizedBox(
+              height: 30,
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 tokenSaleGraphWidget(),
-                const SizedBox(width: 30,),
+                const SizedBox(
+                  width: 30,
+                ),
                 tokenSaleProgressWidget()
               ],
             ),

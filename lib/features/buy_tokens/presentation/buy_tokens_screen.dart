@@ -1,9 +1,9 @@
-import 'package:dashboard/features/dashboard/presentation/widgets/choose_currency_widget.dart';
+import 'package:dashboard/features/buy_tokens/presentation/widgets/choose_currency_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/coin_token_conversion_widget.dart';
 import 'package:dashboard/features/dashboard/presentation/widgets/download_whitepaper_widget.dart';
-import 'package:dashboard/features/dashboard/presentation/widgets/pre_token_sales_widget.dart';
-import 'package:dashboard/features/dashboard/presentation/widgets/token_balance_widget.dart';
-import 'package:dashboard/features/dashboard/presentation/widgets/wallet_address_widget.dart';
+import 'package:dashboard/features/buy_tokens/presentation/widgets/pre_token_sales_widget.dart';
+import 'package:dashboard/features/buy_tokens/presentation/widgets/token_balance_widget.dart';
+import 'package:dashboard/features/buy_tokens/presentation/widgets/wallet_address_widget.dart';
 import 'package:flutter/material.dart';
 
 class BuyTokensScreen extends StatefulWidget {
@@ -39,7 +39,7 @@ class _BuyTokensScreenState extends State<BuyTokensScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      tokenBalanceWidget(),
+                      tokenBalanceWidget(context),
                       const SizedBox(
                         height: 30,
                       ),
