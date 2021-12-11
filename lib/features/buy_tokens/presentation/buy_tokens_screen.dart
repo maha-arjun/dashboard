@@ -39,7 +39,7 @@ class _BuyTokensScreenState extends State<BuyTokensScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      tokenBalanceWidget(context),
+                      tokenBalanceWidget(context, MediaQuery.of(context).size),
                       const SizedBox(
                         height: 30,
                       ),

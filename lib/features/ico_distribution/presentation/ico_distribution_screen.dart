@@ -47,7 +47,7 @@ class _IcoDistributionScreenState extends State<IcoDistributionScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      tokenBalanceWidget(context),
+                      tokenBalanceWidget(context, MediaQuery.of(context).size),
                       const SizedBox(
                         height: 30,
                       ),
