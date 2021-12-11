@@ -39,7 +39,7 @@ class _BuyTokensScreenState extends State<BuyTokensScreen> {
                       const SizedBox(
                         height: 30,
                       ),
-                      tokenBalanceWidget(),
+                      tokenBalanceWidget(context),
                       const SizedBox(
                         height: 30,
                       ),

@@ -7,7 +7,7 @@ class AppTheme {
     fontWeight: FontWeight.w600,
     fontSize: 18.2,
   );
-  static const TextStyle menuButtonTextStyle = const TextStyle(
+  static const TextStyle menuButtonTextStyle = TextStyle(
     fontSize: 16,
     color: AppColors.kBlueColor,
   );
@@ -16,10 +16,25 @@ class AppTheme {
     color: AppColors.textGreyColor,
     fontSize: 14,
   );
+  static const TextStyle labelTextStyle = TextStyle(
+    fontSize: 12,
+    color: AppColors.kBlueColor,
+    fontWeight: FontWeight.w600,
+  );
+  static const TextStyle cellSubtitleTextStyle = TextStyle(
+    fontSize: 10,
+    fontWeight: FontWeight.w300,
+    color: AppColors.textGreyColor,
+  );
+  static const TextStyle cellTitleTextStyle = TextStyle(
+    fontSize: 12,
+    fontWeight: FontWeight.w600,
+    color: AppColors.textDarkGreyColor,
+  );
 
   static ButtonStyle? elevatedButtonStyle = ElevatedButton.styleFrom(
     primary: AppColors.kBlueColor,
-    minimumSize: Size(200, 57),
+    minimumSize: const Size(200, 57),
     onSurface: AppColors.kPrimaryBlueColor,
   );
 }
