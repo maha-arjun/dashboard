@@ -1,12 +1,17 @@
 import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/app_theme.dart';
-import 'package:dashboard/core/responsive_layout.dart';
 import 'package:dashboard/core/widgets/default_textfield.dart';
 import 'package:flutter/material.dart';
 
-class ProfileDataTab extends StatelessWidget {
+class ProfileDataTab extends StatefulWidget {
   const ProfileDataTab({Key? key}) : super(key: key);
 
+  @override
+  State<ProfileDataTab> createState() => _ProfileDataTabState();
+}
+
+class _ProfileDataTabState extends State<ProfileDataTab> {
+  final dateController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -51,7 +56,7 @@ class ProfileDataTab extends StatelessWidget {
                       ],
                     ),
                   ),
-                 const  SizedBox(
+                  const SizedBox(
                     width: 30,
                   ),
                   Expanded(
@@ -73,7 +78,7 @@ class ProfileDataTab extends StatelessWidget {
                             top: 10,
                             bottom: 20,
                           ),
-                          child: textField(),
+                          child: dateTimeTextField(context),
                         ),
                       ],
                     ),
@@ -113,7 +118,7 @@ class ProfileDataTab extends StatelessWidget {
                       top: 10,
                       bottom: 20,
                     ),
-                    child: textField(),
+                    child: dateTimeTextField(context),
                   ),
                   subTitleText('Nationality'),
                   Padding(
@@ -127,17 +132,44 @@ class ProfileDataTab extends StatelessWidget {
               ),
         MediaQuery.of(context).size.width > 575
             ? Row(
-                children: [updateButton(),const  Spacer(), updateStatusIndicator(),],
+                children: [
+                  updateButton(),
+                  const Spacer(),
+                  updateStatusIndicator(),
+                ],
               )
             : Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   updateButton(),
-                 const  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   updateStatusIndicator(),
                 ],
               ),
       ],
+    );
+  }
+
+  Widget dateTimeTextField(BuildContext context) {
+    return SizedBox(
+      height: 40,
+      child: TextFormField(
+        controller: dateController,
+        readOnly: true,
+        style: AppTheme.inputTextStyle,
+        decoration: AppTheme.textFieldDecoration,
+        onTap: () async {
+          var date = await showDatePicker(
+            context: context,
+            initialDate: DateTime.now(),
+            firstDate: DateTime(1960),
+            lastDate: DateTime.now(),
+          );
+          setState(() {
+            dateController.text = '${date!.day}/${date.month}/${date.year}';
+          });
+        },
+      ),
     );
   }
 

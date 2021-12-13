@@ -37,7 +37,6 @@ class _UserTransactionsWidgetState extends State<UserTransactionsWidget> {
                 child: pagination_widget.PaginatedDataTable(
                   headingRowHeight: 40,
                   columnSpacing: 10,
-                  // showFirstLastButtons: true,
                   columns: screenWidth > 1000
                       ? [
                           dataColumn('TRANX NO'),
@@ -132,31 +131,84 @@ class UserTransactionsData extends DataTableSource {
             ),
           );
         },
-        child: Container(
-          height: 30,
-          width: 32,
-          decoration: BoxDecoration(
-            color: AppColors.kBgBlueColor,
-            borderRadius: BorderRadius.circular(2.5),
-          ),
-          child: Center(
-            child: Icon(
-              _data[index].suffixIcon,
-              color: AppColors.textDarkGreyColor,
-              size: 16,
-            ),
-          ),
-        ),
+        child: 
+        // index == 0
+        //     ? Row(
+        //         mainAxisSize: MainAxisSize.min,
+        //         mainAxisAlignment: MainAxisAlignment.end,
+        //         children: [
+        //           Container(
+        //             height: 30,
+        //             width: 80,
+        //             decoration: BoxDecoration(
+        //               color: AppColors.kBlueColor,
+        //               borderRadius: BorderRadius.circular(2.5),
+        //             ),
+        //             child: Center(
+        //               child: Row(
+        //                 mainAxisSize: MainAxisSize.min,
+        //                 children: const [
+        //                   Text(
+        //                     'Pay  ',
+        //                     style: TextStyle(
+        //                       color: AppColors.kWhiteColor,
+        //                       fontSize: 12,
+        //                     ),
+        //                   ),
+        //                   Icon(
+        //                     Icons.account_balance_wallet_outlined,
+        //                     size: 15,
+        //                     color: AppColors.kWhiteColor,
+        //                   ),
+        //                 ],
+        //               ),
+        //             ),
+        //           ),
+        //           const SizedBox(
+        //             width: 5,
+        //           ),
+        //           Container(
+        //             height: 30,
+        //             width: 32,
+        //             decoration: BoxDecoration(
+        //               color: AppColors.kRedColor.withOpacity(0.25),
+        //               borderRadius: BorderRadius.circular(2.5),
+        //             ),
+        //             child: const Center(
+        //               child: Icon(
+        //                 Icons.delete_outline,
+        //                 color: AppColors.kRedColor,
+        //                 size: 16,
+        //               ),
+        //             ),
+        //           ),
+        //         ],
+        //       )
+        //     : 
+            Container(
+                height: 30,
+                width: 32,
+                decoration: BoxDecoration(
+                  color: AppColors.kBgBlueColor,
+                  borderRadius: BorderRadius.circular(2.5),
+                ),
+                child: Center(
+                  child: Icon(
+                    _data[index].suffixIcon,
+                    color: AppColors.textDarkGreyColor,
+                    size: 16,
+                  ),
+                ),
+              ),
       ),
     );
   }
 
   DataCell type(int index) {
-    List colors = [
-      AppColors.kYellowColor,
-      AppColors.kGreenColor,
-      AppColors.kRedColor
-    ];
+    Color color = _data[index].tranType == 'Purchase'
+        ? AppColors.kGreenColor
+        : AppColors.kBlueColor;
+
     return DataCell(
       Container(
         width: 90,
@@ -165,7 +217,7 @@ class UserTransactionsData extends DataTableSource {
           color: AppColors.kWhiteColor,
           borderRadius: BorderRadius.circular(2.5),
           border: Border.all(
-            color: colors[index % 3],
+            color: color,
             width: 1.0,
           ),
         ),
@@ -262,7 +314,7 @@ class UserTransactionsData extends DataTableSource {
             height: 7,
           ),
           Text(
-            _data[index].tranDateTime.toString(),
+            AppTheme.dateFormat.format(_data[index].tranDateTime).toString(),
             style: AppTheme.cellSubtitleTextStyle(width),
           ),
         ],
@@ -314,7 +366,9 @@ class UserTransactionsData extends DataTableSource {
                 height: 7,
               ),
               Text(
-                _data[index].tranDateTime.toString(),
+                AppTheme.dateFormat
+                    .format(_data[index].tranDateTime)
+                    .toString(),
                 style: AppTheme.cellSubtitleTextStyle(width),
               ),
             ],

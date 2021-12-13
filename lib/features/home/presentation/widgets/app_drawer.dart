@@ -15,11 +15,18 @@ class AppDrawer extends StatefulWidget {
 class _AppDrawerState extends State<AppDrawer> {
   int _hoverIndex = -1;
   int _currentIndex = 0;
+
+  void navigate(int index) {
+    AppControllers.homeController.jumpToPage(index);
+    setState(() => _currentIndex = index);
+    Navigator.pop(context);
+  }
+
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return Drawer(
-      elevation: 5,
+      elevation: 0,
       child: Column(
         children: [
           const SizedBox(
@@ -34,10 +41,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(0);
-                setState(() => _currentIndex = 0);
-              },
+              onTap: () => navigate(0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -63,10 +67,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(1);
-                setState(() => _currentIndex = 1);
-              },
+              onTap: () => navigate(1),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -92,10 +93,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(2);
-                setState(() => _currentIndex = 2);
-              },
+              onTap: () => navigate(2),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -121,10 +119,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(3);
-                setState(() => _currentIndex = 3);
-              },
+              onTap: () => navigate(3),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -150,10 +145,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(4);
-                setState(() => _currentIndex = 4);
-              },
+              onTap: () => navigate(4),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -179,10 +171,7 @@ class _AppDrawerState extends State<AppDrawer> {
                 });
               },
               hoverColor: Colors.transparent,
-              onTap: () {
-                AppControllers.homeController.jumpToPage(5);
-                setState(() => _currentIndex = 5);
-              },
+              onTap: () => navigate(5),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [

@@ -47,7 +47,7 @@ List<TransactionsModel> userTransactions = [
     tranAmount: '50.00',
     tranType: 'Purchase',
     gateway: 'ETH',
-    suffixIcon: Icons.more_horiz,
+    suffixIcon: Icons.remove_red_eye_outlined,
     prefixIcon: Icons.done,
   ),
   TransactionsModel(
@@ -69,7 +69,7 @@ List<TransactionsModel> userTransactions = [
     tranAmount: '50.00',
     tranType: 'Bonus',
     gateway: 'ETH',
-    suffixIcon: Icons.more_horiz,
+    suffixIcon: Icons.remove_red_eye_outlined,
     prefixIcon: Icons.warning,
   ),
   TransactionsModel(
@@ -80,7 +80,7 @@ List<TransactionsModel> userTransactions = [
     tranAmount: '50.00',
     tranType: 'Purchase',
     gateway: 'ETH',
-    suffixIcon: Icons.more_horiz,
+    suffixIcon: Icons.remove_red_eye_outlined,
     prefixIcon: Icons.done,
   ),
   TransactionsModel(
@@ -102,7 +102,7 @@ List<TransactionsModel> userTransactions = [
     tranAmount: '50.00',
     tranType: 'Bonus',
     gateway: 'ETH',
-    suffixIcon: Icons.more_horiz,
+    suffixIcon: Icons.remove_red_eye_outlined,
     prefixIcon: Icons.warning,
   ),
   TransactionsModel(
@@ -113,7 +113,7 @@ List<TransactionsModel> userTransactions = [
     tranAmount: '50.00',
     tranType: 'Purchase',
     gateway: 'ETH',
-    suffixIcon: Icons.more_horiz,
+    suffixIcon: Icons.remove_red_eye_outlined,
     prefixIcon: Icons.done,
   ),
   TransactionsModel(

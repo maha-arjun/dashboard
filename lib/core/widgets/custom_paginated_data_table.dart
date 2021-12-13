@@ -447,34 +447,22 @@ class PaginatedDataTableState extends State<PaginatedDataTable> {
           tooltip: localizations.firstPageTooltip,
           onPressed: _firstRowIndex <= 0 ? null : _handleFirst,
         ),
-      // IconButton(
-      //   icon: Icon(Icons.chevron_left, color: widget.arrowHeadColor),
-      //   padding: EdgeInsets.zero,
-      //   tooltip: localizations.previousPageTooltip,
-      //   onPressed: _firstRowIndex <= 0 ? null : _handlePrevious,
-      // ),
       ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: AppColors.kBlueColor,
-          minimumSize: Size(36, 36),
+          minimumSize: const Size(36, 36),
         ),
         onPressed: _firstRowIndex <= 0 ? null : _handlePrevious,
-        child: Text('Prev'),
+        child: const Text('Prev'),
       ),
       Container(width: 24.0),
-      // IconButton(
-      //   icon: Icon(Icons.chevron_right, color: widget.arrowHeadColor),
-      //   padding: EdgeInsets.zero,
-      //   tooltip: localizations.nextPageTooltip,
-      //   onPressed: _isNextPageUnavailable() ? null : _handleNext,
-      // ),
       ElevatedButton(
         style: ElevatedButton.styleFrom(
           primary: AppColors.kBlueColor,
-          minimumSize: Size(36, 36),
+          minimumSize: const Size(36, 36),
         ),
         onPressed: _isNextPageUnavailable() ? null : _handleNext,
-        child: Text('Next'),
+        child: const Text('Next'),
       ),
       if (widget.showFirstLastButtons)
         IconButton(
