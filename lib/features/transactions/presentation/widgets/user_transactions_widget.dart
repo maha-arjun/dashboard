@@ -1,10 +1,11 @@
-import 'dart:js';
-
 import 'package:dashboard/core/app_colors.dart';
 import 'package:dashboard/core/app_theme.dart';
 import 'package:dashboard/core/widgets/default_container.dart';
 import 'package:dashboard/features/transactions/data/models/transactions_model.dart';
+import 'package:dashboard/features/transactions/presentation/widgets/transaction_details.dart';
 import 'package:flutter/material.dart';
+import 'package:dashboard/core/widgets/custom_paginated_data_table.dart'
+    as pagination_widget;
 
 class UserTransactionsWidget extends StatefulWidget {
   const UserTransactionsWidget({Key? key}) : super(key: key);
@@ -33,8 +34,10 @@ class _UserTransactionsWidgetState extends State<UserTransactionsWidget> {
           Row(
             children: [
               Expanded(
-                child: PaginatedDataTable(
+                child: pagination_widget.PaginatedDataTable(
                   headingRowHeight: 40,
+                  columnSpacing: 10,
+                  // showFirstLastButtons: true,
                   columns: screenWidth > 1000
                       ? [
                           dataColumn('TRANX NO'),
@@ -61,7 +64,7 @@ class _UserTransactionsWidgetState extends State<UserTransactionsWidget> {
                             ],
                   source: _data,
                   rowsPerPage: 8,
-                  showCheckboxColumn: false,
+                  showCheckboxColumn: true,
                 ),
               ),
             ],
@@ -94,25 +97,25 @@ class UserTransactionsData extends DataTableSource {
     var screenWidth = MediaQuery.of(context).size.width;
     return screenWidth > 1000
         ? DataRow(cells: [
-            tranxNo(index),
-            tokens(index),
-            amount(index),
-            usdAmount(index),
-            from(index),
+            tranxNo(index, screenWidth),
+            tokens(index, screenWidth),
+            amount(index, screenWidth),
+            usdAmount(index, screenWidth),
+            from(index, screenWidth),
             type(index),
             suffixButton(index),
           ])
         : screenWidth < 1000 && screenWidth > 570
             ? DataRow(cells: [
-                tranxNo(index),
-                tokens(index),
-                amount(index),
+                tranxNo(index, screenWidth),
+                tokens(index, screenWidth),
+                amount(index, screenWidth),
                 type(index),
                 suffixButton(index),
               ])
             : DataRow(cells: [
-                tranxNo(index),
-                tokens(index),
+                tranxNo(index, screenWidth),
+                tokens(index, screenWidth),
                 type(index),
                 suffixButton(index),
               ]);
@@ -120,18 +123,28 @@ class UserTransactionsData extends DataTableSource {
 
   DataCell suffixButton(int index) {
     return DataCell(
-      Container(
-        height: 30,
-        width: 32,
-        decoration: BoxDecoration(
-          color: AppColors.kBgBlueColor,
-          borderRadius: BorderRadius.circular(2.5),
-        ),
-        child: Center(
-          child: Icon(
-            _data[index].suffixIcon,
-            color: AppColors.textDarkGreyColor,
-            size: 16,
+      InkWell(
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (context) => const Dialog(
+              child: TransactionDetailsDialog(),
+            ),
+          );
+        },
+        child: Container(
+          height: 30,
+          width: 32,
+          decoration: BoxDecoration(
+            color: AppColors.kBgBlueColor,
+            borderRadius: BorderRadius.circular(2.5),
+          ),
+          child: Center(
+            child: Icon(
+              _data[index].suffixIcon,
+              color: AppColors.textDarkGreyColor,
+              size: 16,
+            ),
           ),
         ),
       ),
@@ -139,6 +152,11 @@ class UserTransactionsData extends DataTableSource {
   }
 
   DataCell type(int index) {
+    List colors = [
+      AppColors.kYellowColor,
+      AppColors.kGreenColor,
+      AppColors.kRedColor
+    ];
     return DataCell(
       Container(
         width: 90,
@@ -147,7 +165,7 @@ class UserTransactionsData extends DataTableSource {
           color: AppColors.kWhiteColor,
           borderRadius: BorderRadius.circular(2.5),
           border: Border.all(
-            color: AppColors.kBlueColor,
+            color: colors[index % 3],
             width: 1.0,
           ),
         ),
@@ -164,7 +182,7 @@ class UserTransactionsData extends DataTableSource {
     );
   }
 
-  DataCell tokens(int index) {
+  DataCell tokens(int index, double width) {
     return DataCell(
       Column(
         mainAxisSize: MainAxisSize.min,
@@ -172,21 +190,21 @@ class UserTransactionsData extends DataTableSource {
         children: [
           Text(
             _data[index].tokenVol,
-            style: AppTheme.cellTitleTextStyle,
+            style: AppTheme.cellTitleTextStyle(width),
           ),
           const SizedBox(
             height: 7,
           ),
           Text(
             _data[index].tokenName,
-            style: AppTheme.cellSubtitleTextStyle,
+            style: AppTheme.cellSubtitleTextStyle(width),
           ),
         ],
       ),
     );
   }
 
-  DataCell amount(int index) {
+  DataCell amount(int index, double width) {
     return DataCell(
       Column(
         mainAxisSize: MainAxisSize.min,
@@ -194,21 +212,21 @@ class UserTransactionsData extends DataTableSource {
         children: [
           Text(
             _data[index].tranAmount,
-            style: AppTheme.cellTitleTextStyle,
+            style: AppTheme.cellTitleTextStyle(width),
           ),
           const SizedBox(
             height: 7,
           ),
-          const Text(
+          Text(
             'USDT',
-            style: AppTheme.cellSubtitleTextStyle,
+            style: AppTheme.cellSubtitleTextStyle(width),
           ),
         ],
       ),
     );
   }
 
-  DataCell usdAmount(int index) {
+  DataCell usdAmount(int index, double width) {
     return DataCell(
       Column(
         mainAxisSize: MainAxisSize.min,
@@ -216,43 +234,48 @@ class UserTransactionsData extends DataTableSource {
         children: [
           Text(
             _data[index].tranAmount,
-            style: AppTheme.cellTitleTextStyle,
+            style: AppTheme.cellTitleTextStyle(width),
           ),
           const SizedBox(
             height: 7,
           ),
-          const Text(
+          Text(
             'USD',
-            style: AppTheme.cellSubtitleTextStyle,
+            style: AppTheme.cellSubtitleTextStyle(width),
           ),
         ],
       ),
     );
   }
 
-  DataCell from(int index) {
+  DataCell from(int index, double width) {
     return DataCell(
       Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+          Text(
             '1F1T....4XQX',
-            style: AppTheme.cellTitleTextStyle,
+            style: AppTheme.cellTitleTextStyle(width),
           ),
           const SizedBox(
             height: 7,
           ),
           Text(
             _data[index].tranDateTime.toString(),
-            style: AppTheme.cellSubtitleTextStyle,
+            style: AppTheme.cellSubtitleTextStyle(width),
           ),
         ],
       ),
     );
   }
 
-  DataCell tranxNo(int index) {
+  DataCell tranxNo(int index, double width) {
+    List colors = [
+      AppColors.kYellowColor,
+      AppColors.kGreenColor,
+      AppColors.kRedColor,
+    ];
     return DataCell(
       Row(
         mainAxisSize: MainAxisSize.min,
@@ -263,7 +286,7 @@ class UserTransactionsData extends DataTableSource {
             decoration: BoxDecoration(
               color: AppColors.kWhiteColor,
               border: Border.all(
-                color: AppColors.kBlueColor,
+                color: colors[index % 3],
                 width: 1.0,
               ),
               shape: BoxShape.circle,
@@ -271,7 +294,7 @@ class UserTransactionsData extends DataTableSource {
             child: Center(
               child: Icon(
                 _data[index].prefixIcon,
-                color: AppColors.kBlueColor,
+                color: colors[index % 3],
                 size: 20,
               ),
             ),
@@ -285,14 +308,14 @@ class UserTransactionsData extends DataTableSource {
             children: [
               Text(
                 _data[index].tranId,
-                style: AppTheme.cellTitleTextStyle,
+                style: AppTheme.cellTitleTextStyle(width),
               ),
               const SizedBox(
                 height: 7,
               ),
               Text(
                 _data[index].tranDateTime.toString(),
-                style: AppTheme.cellSubtitleTextStyle,
+                style: AppTheme.cellSubtitleTextStyle(width),
               ),
             ],
           ),

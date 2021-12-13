@@ -21,16 +21,19 @@ class AppTheme {
     color: AppColors.kBlueColor,
     fontWeight: FontWeight.w600,
   );
-  static const TextStyle cellSubtitleTextStyle = TextStyle(
-    fontSize: 10,
-    fontWeight: FontWeight.w300,
-    color: AppColors.textGreyColor,
-  );
-  static const TextStyle cellTitleTextStyle = TextStyle(
-    fontSize: 12,
-    fontWeight: FontWeight.w600,
-    color: AppColors.textDarkGreyColor,
-  );
+  static TextStyle cellSubtitleTextStyle(double width) {
+    return TextStyle(
+      fontSize: width > 770 ? 12 : 10,
+      fontWeight: FontWeight.w300,
+      color: AppColors.textGreyColor,
+    );
+  }
+
+  static TextStyle cellTitleTextStyle(double width) => TextStyle(
+        fontSize: width > 770 ? 14 : 12,
+        fontWeight: FontWeight.w600,
+        color: AppColors.textDarkGreyColor,
+      );
 
   static ButtonStyle? elevatedButtonStyle = ElevatedButton.styleFrom(
     primary: AppColors.kBlueColor,
