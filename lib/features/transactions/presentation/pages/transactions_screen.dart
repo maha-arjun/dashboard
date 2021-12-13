@@ -35,6 +35,7 @@ class _TransactionsScreenState extends State<TransactionsScreen> {
               child: const UserTransactionsWidget(),
             ),
           ),
+          const SizedBox(height: 50),
         ],
       ),
     );

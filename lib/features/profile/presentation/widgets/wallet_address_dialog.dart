@@ -139,21 +139,6 @@ class WalletAddressDialog extends StatelessWidget {
             ),
           ),
         ),
-        // Positioned(
-        //   top: 0,
-        //   right: 0,
-        //   child: Container(
-        //     height: 30,
-        //     width: 30,
-        //     decoration: const BoxDecoration(
-        //       shape: BoxShape.circle,
-        //       color: AppColors.kWhiteColor,
-        //     ),
-        //     child: const Center(
-        //       child: Icon(Icons.close),
-        //     ),
-        //   ),
-        // ),
       ],
     );
   }
