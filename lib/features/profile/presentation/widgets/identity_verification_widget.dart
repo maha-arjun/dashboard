@@ -18,8 +18,8 @@ class IdentityVerificationWidget extends StatelessWidget {
           'Identity Verification - KYC',
           style: AppTheme.sectionTitleTextStyle,
         ),
-        SizedBox(
-          height: size.width * 0.02,
+        const SizedBox(
+          height: 10,
         ),
         const Text(
           'To comply with regulation, participant will have to go through identity verification.',
@@ -28,8 +28,8 @@ class IdentityVerificationWidget extends StatelessWidget {
             height: 1.3,
           ),
         ),
-        SizedBox(
-          height: size.width * 0.02,
+        const SizedBox(
+          height: 10,
         ),
         const Text(
           'You have not submitted your KYC application to verify your identity.',
@@ -39,8 +39,8 @@ class IdentityVerificationWidget extends StatelessWidget {
               fontSize: 16,
               fontWeight: FontWeight.w100),
         ),
-        SizedBox(
-          height: size.width * 0.025,
+        const SizedBox(
+          height: 20,
         ),
         ElevatedButton(
           style: AppTheme.elevatedButtonStyle!.copyWith(
@@ -50,8 +50,8 @@ class IdentityVerificationWidget extends StatelessWidget {
           onPressed: () {},
           child: const Text('Click to Proceed'),
         ),
-        SizedBox(
-          height: size.width * 0.02,
+        const SizedBox(
+          height: 20,
         ),
         const Text(
           '* KYC verification required for purchase token',
