@@ -13,7 +13,7 @@ class AppTheme {
   );
   static const TextStyle subTitleTextStyle = TextStyle(
     fontWeight: FontWeight.bold,
-    color: AppColors.textGreyColor,
+    color: AppColors.textDarkGreyColor,
     fontSize: 14,
   );
   static const TextStyle labelTextStyle = TextStyle(

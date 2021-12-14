@@ -52,7 +52,7 @@ Widget transactionWidget(Size size) => Container(
       Row(
         children: [
           SizedBox(
-            width: size.width > 500 ? 178.55 : 161.91,
+            width: size.width > 500 ? 178.55 : (size.width - 60) / 3,
             height: 30.39,
             child: const Text(
               'TWZ TOKENS',
@@ -94,7 +94,7 @@ Widget transactionWidget(Size size) => Container(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: size.width > 500 ? 178.55 : 161.91,
+            width: size.width > 500 ? 178.55 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -113,7 +113,7 @@ Widget transactionWidget(Size size) => Container(
             ),
           ),
           SizedBox(
-            width: size.width > 500 ? 155.56 : 141.09,
+            width: size.width > 500 ? 155.56 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -151,12 +151,12 @@ Widget transactionWidget(Size size) => Container(
                 ),
             )
           ),
-          Container(
+          Expanded(child: Container(
             height: 30,
             width: 90,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5),
-              border: Border.all(color: AppColors.borderGreenColor, width: 1)
+                borderRadius: BorderRadius.circular(5),
+                border: Border.all(color: AppColors.borderGreenColor, width: 1)
             ),
             child: const Center(
               child: Text(
@@ -168,7 +168,7 @@ Widget transactionWidget(Size size) => Container(
                 ),
               ),
             ),
-          )
+          ))
         ],
       ),
       const SizedBox(
@@ -178,7 +178,7 @@ Widget transactionWidget(Size size) => Container(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: size.width > 500 ? 178.55 : 161.91,
+            width: size.width > 500 ? 178.55 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -197,7 +197,7 @@ Widget transactionWidget(Size size) => Container(
             ),
           ),
           SizedBox(
-            width: size.width > 500 ? 155.56 : 141.09,
+            width: size.width > 500 ? 155.56 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -235,7 +235,7 @@ Widget transactionWidget(Size size) => Container(
                 ),
               )
           ),
-          Container(
+          Expanded(child: Container(
             height: 30,
             width: 90,
             decoration: BoxDecoration(
@@ -252,7 +252,7 @@ Widget transactionWidget(Size size) => Container(
                 ),
               ),
             ),
-          )
+          ))
         ],
       ),
       const SizedBox(
@@ -262,7 +262,7 @@ Widget transactionWidget(Size size) => Container(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           SizedBox(
-            width: size.width > 500 ? 178.55 : 161.91,
+            width: size.width > 500 ? 178.55 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -281,7 +281,7 @@ Widget transactionWidget(Size size) => Container(
             ),
           ),
           SizedBox(
-            width: size.width > 500 ? 155.56 : 141.09,
+            width: size.width > 500 ? 155.56 : (size.width - 60) / 3,
             height: 15,
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.end,
@@ -319,7 +319,7 @@ Widget transactionWidget(Size size) => Container(
                 ),
               )
           ),
-          Container(
+          Expanded(child: Container(
             height: 30,
             width: 90,
             decoration: BoxDecoration(
@@ -336,7 +336,7 @@ Widget transactionWidget(Size size) => Container(
                 ),
               ),
             ),
-          )
+          ))
         ],
       ),
     ],
